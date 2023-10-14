@@ -1,0 +1,252 @@
+Go (Golang) Programming Interview Questions and Answers
+
+// -------------------------------------------------------------
+What Is Go (Golang) Programming Language?
+The Go is Stand for Golang. The GO is a System Programming
+Language (open source) and it developed at Google by Robert
+Griesemer, Rob Pike and Ken Thompson in 2009.
+
+The GO is a strongly and statically typed and provides inbuilt
+support for garbage collection and supports concurrent
+programming.
+
+The code can be compiled into a single executable binary and
+don't need addition library or runtime to execute it on server.
+
+// -------------------------------------------------------------
+Who Is the father of Go (Golang)?
+The Go programming language is created by
+ .. Robert Griesemer
+ .. Rob Pike and
+ .. Ken Thompson
+
+The Go is developed at Google in 2009.
+
+What Are the Benefits of using Go programming?
+ .. The compilation time is very fast.
+ .. In-Built concurrency support
+ .. Go supports concurrency at the language level
+ .. Support for environment adopting patterns
+ .. Supported to Interfaces and Type embedding
+ .. GO has garbage collection
+
+// -------------------------------------------------------------
+Can we declare a Class in Go?
+Yes! The Go programming language has a unique way of
+implementing a class with the type interface.
+
+// -------------------------------------------------------------
+Why should one use Go programming language?
+The Go programming is an open source language, reliable, very
+easy to build and efficient software.
+
+// -------------------------------------------------------------
+Is Go (Golang) a Case Sensitive Language?
+Yes! Go is a case sensitive programming language.
+
+// -------------------------------------------------------------
+Does Go (Golang) Support Type Inheritance?
+No! Go doesn't provide support to any types of inheritance.
+
+// -------------------------------------------------------------
+Does Go (Golang) Support Method Overloading?
+No! Go doesn't provide support to any types of method
+overloading.
+
+// -------------------------------------------------------------
+Does Go (Golang) Support Operator Overloading?
+No! Go doesn't provide support to any types of operator
+overloading.
+
+// -------------------------------------------------------------
+Does Go (Golang) Support Generic Programming?
+No! Go doesn't provide support to any types of generic
+programming.
+
+// -------------------------------------------------------------
+Does Go (Golang) Support Pointer Arithmetic?
+No! Go doesn't provide support to any types of pointer
+arithmetic.
+
+// -------------------------------------------------------------
+What Is Go Interfaces?
+The interfaces are a ways to identify the behaviour of an object
+and it is created by using the “type” word.
+
+An interface is specified as two things -
+ü  A set of methods
+ü  It’s referred as type
+
+// -------------------------------------------------------------
+What Is the default value of type bool in Go programming?
+In the Go programming, the default value of type is bool and
+value is false.
+
+// -------------------------------------------------------------
+What Are methods in Go?
+The Go programming language supports special types of functions
+called methods.
+
+// -------------------------------------------------------------
+What Is default value of a global and local variable in Go?
+In the Go programming, both the global and local variables has
+default value is 0.
+
+// -------------------------------------------------------------
+Is Maps Value Types?
+No! The Maps Are Reference types only. Not value type.
+
+// -------------------------------------------------------------
+What Are packages in Go programming?
+The Go program is using the packages with import paths fmt and
+math/rand and the program starts running in package main.
+
+// -------------------------------------------------------------
+What Is GOPATH environment variable?
+The GOPATH environment variable determines the location of the
+workspace.
+
+// -------------------------------------------------------------
+What Is a string literal in Go programming?
+In Go programming, there are two types of string literals i.e.
+ - Raw string literals
+ - Interpreted string literals
+
+// -------------------------------------------------------------
+What Is workspace in Go programming?
+In Go programming, a workspace is a directory hierarchy with
+three directories at its root.
+ - src - Its contains the GO source files
+ - bin - Its contains executable commands
+ - pkg - Its contains package objects
+
+// -------------------------------------------------------------
+What Are the Several built-in supports in Go programming?
+ - Container
+ - Cryptography
+ - Web Server
+ - Database
+ - Compression
+
+// -------------------------------------------------------------
+What Is Syntax like in GO?
+The GO programming syntax is specified using EBNF and its looks
+like -
+ - Alternative = Term { Term }
+ - Production = production_name "=" [ Expression ]
+ - Group = " ( "" Expression")"
+ - Option = " [ " Expression "" ]"
+ - Repetition = " {" Expression "}"
+ - Expression = Alternative { "l" Alternative }
+ - Term = Production_name l token [ "?"token] l Group l Option l
+Repetition
+
+// -------------------------------------------------------------
+How To CREATE a function in Go?
+The Function Syntax looks like -
+func functionName([parameter list] ) [return_types] { 
+   //TODO: function body
+}  
+
+// -------------------------------------------------------------
+What Is the syntax for for-loop in Go?
+The Syntax looks like -
+for [condition |  ( init; condition; increment ) | Range] { 
+   statement(s); 
+} 
+
+// -------------------------------------------------------------
+What will be the output of the following code in Go?
+package main
+
+import "fmt"
+
+func main() {
+  x := 1
+  y := &x
+
+ fmt.Println(*y)
+  *y = 2
+ fmt.Println(x)
+}
+
+The output will be -
+1
+2
+
+// -------------------------------------------------------------
+What will be the output of the following code in Go?
+package main 
+import "fmt" 
+ const (
+       a = 9 
+       b  
+       c  
+ )
+
+  func main() { 
+   fmt.Println(a, b, c) 
+  }
+
+
+The output will be –
+999
+
+// -------------------------------------------------------------
+What will be the output of the following code in Go?
+package main
+import "fmt"
+
+ const (
+       a = iota
+       b
+       c
+ )
+
+
+ func main() {
+ fmt.Println(a, b, c)
+}
+
+The output will be –
+0 1 2
+
+// -------------------------------------------------------------
+What will be the output of the following code in Go?
+package main
+import "fmt"
+
+func main() {
+ var i, j int
+ fmt.Println(&i == &i, &i == &j, &j == nil)
+}
+
+
+The output will be –
+true false false
+
+// -------------------------------------------------------------
+What are the differences in len() and cap() functions of slice
+in Go?
+The len() function returns an elements which presents in the
+slice.
+The cap() function returns the capacity of slice that means how
+many number of elements it can be accommodate.
+
+// -------------------------------------------------------------
+What Is range keyword in Go?
+The Range keyword is used in for loop to iterate over items of
+an array, slice, channel or map.
+
+How to delete an entry from a map in Go?
+The delete () function is used to delete an entry from the map
+and it’s requires map and corresponding key which is to be
+deleted.
+
+// -------------------------------------------------------------
+How to check a variable type at runtime in Go?
+
+In the Go, a special type of switch dedicated to check variable
+type at runtime and the switch is referred as type switch.
+
+// -------------------------------------------------------------

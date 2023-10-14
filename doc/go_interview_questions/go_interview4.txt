@@ -1,0 +1,714 @@
+
+// -------------------------------------------------------------
+Explain what is GO?
+GO is an open source programming language which makes it easy to
+build simple, reliable and efficient software. Programs are
+constructed from packages, whose properties allow efficient
+management of dependencies.
+
+// -------------------------------------------------------------
+What is syntax like in GO?
+Syntax in GO is specified using Extended Backus-Naur Form (EBNF)
+Production = production_name "=" [ Expression ]
+Expression = Alternative { "l" Alternative }
+Alternative = Term { Term }
+Term = Production_name l token [ "..."token] l Group l Option l
+Repetition
+Group = " ( " Expression")"
+Option = " [ " Expression " ]"
+Repetition = " {" Expression "}"
+
+// -------------------------------------------------------------
+Explain what is string literals?
+A string literals represents a string constant obtained from
+concatenating a sequence of characters.
+
+There are two forms,
+
+Raw string literals: The value of raw string literals are
+character sequence between back quotes ''. The value of a string
+literal is the string composed of the uninterrupted character
+between quotes.
+Interpreted string literals: It is represented between double
+quotes "". The text between the double quotes which may not
+contain newlines, forms the value of the literal.
+
+// -------------------------------------------------------------
+Explain packages in Go program?
+Every GO program is made up of packages. The program starts
+running in package main. This program is using the packages with
+import paths "fmt" and "math/rand".
+
+// -------------------------------------------------------------
+Explain workspace in GO?
+Inside a workspace GO code must be kept. A workspace is a
+directory hierarchy with three directories at its root.
+
+src contains GO source files organized into packages
+pkg contains package objects and
+bin contains executable commands
+
+// -------------------------------------------------------------
+Explain how to use custom packages in GO language?
+If you are making your library a separate go get -table project
+and if your library is for internal use then you can code like
+this
+
+Under the directory of your project place the directory with
+library files
+Refer to the library using its path relative to the root of your
+workspace consisting the project
+For example,
+src/
+myproject/
+mylib/
+mylib.go
+. . .
+main.go
+
+Now, in main.go you could import myprojec/mylib.
+
+// -------------------------------------------------------------
+Explain what is GOPATH environment variable?
+The GOPATH environment variable determines the location of the
+workspace. It is the only environment variable that you have to
+set when developing Go code.
+
+// -------------------------------------------------------------
+Explain how you can do testing in GO?
+It has a lightweight testing framework consists of the go test
+command and the testing package.
+
+To write a test you have to create a file with a name ending in
+_testing. Go which contains functions named TestXXX with
+signature func (t *testing.T). The test framework runs each such
+function.
+
+// -------------------------------------------------------------
+Explain what is string types?
+A string type represents the set of string values, and string
+values are sequence of bytes. Strings once created is not
+possible to change.
+
+// -------------------------------------------------------------
+What are the advantages of GO?
+GO compiles very quickly
+Go supports concurrency at the language level
+Functions are first class objects in GO
+GO has garbage collection
+Strings and Maps are built into the language
+
+// -------------------------------------------------------------
+List out the built in support in GO?
+The available built-in-support in GO includes
+
+Container: container/list , container/heap
+Web Server: net/http
+Cryptography: Crypto/md5 , crypto/sha1
+Compression: compress/ gzip
+Database: database/sql
+
+// -------------------------------------------------------------
+Explain what is go routine in GO? How you can stop go routine?
+A goroutine is a function which is capable of running
+concurrently with other functions
+
+To stop goroutine, you pass the goroutine a signal channel, that
+signal channel is used to push a value into when you want the
+goroutine to stop. The goroutine polls that channel regularly as
+soon as it detects a signal, it quits.
+
+Quit : = make (chan bool)
+
+go func ( ) {
+for {
+select {
+case <- quit:
+return
+default
+// do other stuff
+}
+}
+} ()
+// Do stuff
+// Quit goroutine
+Quit <- true
+
+// -------------------------------------------------------------
+Explain how you can write multiline strings in GO?
+To write multiline string in GO you can use a raw string
+literal, where the string is delimited by back quotes rather
+than double quotes.
+' line 1
+line 2
+line 3 '
+
+// -------------------------------------------------------------
+Explain how you to access command line arguments passed to a GO
+program?
+You can access the command line argument using the os.Args
+variables. For example,
+
+Package main
+import (
+"fmt"
+"OS"
+)
+
+func main () {
+fmt.Println(len(os.Args), os.Args)
+}
+
+// -------------------------------------------------------------
+Explain how pointer is represented in GO?
+In GO a pointer is represented by using the * (asterisk)
+character followed by the type of the stored value.
+
+How you can format a string without printing?
+To format a string without printing you have to use command
+return fmt.Sprintf ( "at %v, %s" , e.When , e.What )
+
+// -------------------------------------------------------------
+Explain how arrays in GO works differently then C ?
+In GO Array works differently than it works in C
+
+Arrays are values, assigning one array to another copies all the
+elements
+If you pass an array to a function, it will receive a copy of
+the array, not a pointer to it
+The size of an array is part of its type. The types [10] int and
+[20] int are distinct
+
+// -------------------------------------------------------------
+Explain GO Interfaces ?
+In GO, interfaces is a way to specify the behaviour of an
+object. An interface is created by using the "type" word,
+followed by a name and the keyword interface. An interface is
+specified as two things.
+
+A set of methods
+Also it is referred as type
+
+// -------------------------------------------------------------
+Explain what Type assertion is used for and how it does it?
+Type conversion is used to convert dissimilar types in GO. A
+type assertion takes an interface value and retrieve from it a
+value of the specified explicit type.
+
+In GO language how you can check variable type at runtime?
+A special type of switch is dedicated in GO to check variable
+type at runtime, this switch is referred as type switch. Also,
+you can switch on the type of an interface value with Type
+Switch.
+
+// -------------------------------------------------------------
+How many Looping constructs are present in Go programming
+language?
+Only one loop - for.
+
+// -------------------------------------------------------------
+What is the default value of type bool in Go?
+false.
+
+// -------------------------------------------------------------
+In case of Constants which type of expressions are evaluated at
+compile time and which are evaluated at run time?
+As a rule Constants are evaluated (determined) at compile time
+and never at run time.
+
+// -------------------------------------------------------------
+Which one of the following is correct?
+
+a. const Pi = 3.14
+b. const Pi = math.Pi 
+c. both a and b are correct
+d. None of the above
+a. const Pi = 3.14
+
+// -------------------------------------------------------------
+Short variable declaration := can be used only inside a
+function. True or False?
+True
+
+// -------------------------------------------------------------
+Short declaration := can be used for defining global variables.
+True or False?
+False
+
+// -------------------------------------------------------------
+What's wrong with the following code?
+
+package main
+import "fmt"
+func main() {
+var a int8 = 3
+var b int16 = 4
+sum := a + b
+fmt.Println(sum)
+}
+Compile time error, you'll get the following message:
+
+invalid operation: a + b (mismatched types int8 and int16)
+
+Note - Though int8 and int16 are similar in nature they are two
+distinct types. One of the variables must be converted
+explicitly so that both the variables are of same type.
+
+Correct: sum := a + int8(b)
+
+// -------------------------------------------------------------
+What's the output of following code?
+package main
+import "fmt"
+const ( 
+i = 7
+j 
+k 
+)
+func main() {
+fmt.Println(i, j, k)
+}
+7 7 7
+
+What's the output of following code?
+package main
+import "fmt"
+func main(){
+c := [...]int{} 
+fmt.Println(len(c))
+}
+0
+
+// -------------------------------------------------------------
+Arrays are value types i.e. in case of arrays as arguments,
+functions get their copies instead of a reference. True or
+False?
+True
+
+// -------------------------------------------------------------
+Slices are reference type - the variable are stored in the heap?
+True or False
+True
+
+// -------------------------------------------------------------
+What's the output of following code?
+package main
+import "fmt"
+func main() {
+oddSlc := []int{1,3,5,7} 
+evenSlc := []int{2,4,6,8}
+copy(evenSlc, oddSlc[2:]) 
+fmt.Println("evenSlc = ", evenSlc)
+}
+evenSlc = [5 7 6 8]
+
+// -------------------------------------------------------------
+Maps are value types. True or False?
+False
+Note: Maps are Reference types.
+
+// -------------------------------------------------------------
+Is it recommended to use Global Variables in a program that
+implements go routines?
+Global variables are not recommended as they may get accessed by
+multiple go routines (threads) concurrently that can easily lead
+to an unexpected behavior causing arbitrary results.
+
+// -------------------------------------------------------------
+Does Go support type inheritance?
+No support for type inheritance.
+
+// -------------------------------------------------------------
+Does Go support operator overloading?
+No support for operator overloading.
+
+// -------------------------------------------------------------
+Does Go support method overloading?
+No support for method overloading.
+
+// -------------------------------------------------------------
+Does Go support pointer arithmetics?
+No support for pointer arithmetic.
+
+// -------------------------------------------------------------
+Does Go support generic programming?
+No support for generic programming.
+
+// -------------------------------------------------------------
+Is Go a case sensitive language?
+Yes! Go is a case sensitive programming language.
+
+// -------------------------------------------------------------
+What is static type declaration of a variable in Go?
+Static type variable declaration provides assurance to the
+compiler that there is one variable existing with the given type
+and name so that compiler proceed for further compilation
+without needing complete detail about the variable. A variable
+declaration has its meaning at the time of compilation only,
+compiler needs actual variable declaration at the time of
+linking of the program.
+
+// -------------------------------------------------------------
+What is dynamic type declaration of a variable in Go?
+A dynamic type variable declaration requires compiler to
+interpret the type of variable based on value passed to it.
+Compiler don't need a variable to have type statically as a
+necessary requirement.
+
+// -------------------------------------------------------------
+Can you declare multiple types of variables in single
+declaration in Go?
+Yes Variables of different types can be declared in one go using
+type inference.
+var a, b, c = 3, 4, "foo"
+
+// -------------------------------------------------------------
+How to print type of a variable in Go?
+Following code prints the type of a variable −
+
+var a, b, c = 3, 4, "foo" 
+fmt.Printf("a is of type %T\n", a)
+
+// -------------------------------------------------------------
+What is a pointer?
+It's a pointer variable which can hold the address of a
+variable.
+For example −
+
+var x = 5
+var p *int
+p = &x
+fmt.Printf("x = %d", *p)
+
+Here x can be accessed by *p.
+
+// -------------------------------------------------------------
+What is the purpose of break statement?
+break terminates the for loop or switch statement and transfers
+execution to the statement immediately following the for loop or
+switch.
+
+// -------------------------------------------------------------
+What is the purpose of continue statement?
+continue causes the loop to skip the remainder of its body and
+immediately retest its condition prior to reiterating.
+
+// -------------------------------------------------------------
+What is the purpose of goto statement?
+goto transfers control to the labeled statement.
+
+// -------------------------------------------------------------
+Explain the syntax for 'for' loop.
+The syntax of a for loop in Go programming language is 
+for [condition | ( init; condition; increment ) | Range]
+{
+statement(s);
+}
+
+Here is the flow of control in a for loop −
+
+if condition is available, then for loop executes as long as
+condition is true.
+
+if for clause that is ( init; condition; increment ) is present
+then
+
+The init step is executed first, and only once. This step allows
+you to declare and initialize any loop control variables. You
+are not required to put a statement here, as long as a semicolon
+appears.
+
+Next, the condition is evaluated. If it is true, the body of the
+loop is executed. If it is false, the body of the loop does not
+execute and flow of control jumps to the next statement just
+after the for loop.
+
+After the body of the for loop executes, the flow of control
+jumps back up to the increment statement. This statement allows
+you to update any loop control variables. This statement can be
+left blank, as long as a semicolon appears after the condition.
+
+The condition is now evaluated again. If it is true, the loop
+executes and the process repeats itself (body of loop, then
+increment step, and then again condition). After the condition
+becomes false, the for loop terminates.
+
+if range is available, then for loop executes for each item in
+the range.
+
+// -------------------------------------------------------------
+Explain the syntax to create a function in Go.
+The general form of a function definition in Go programming
+language is as follows −
+
+func function_name( [parameter list] ) [return_types]
+{
+body of the function
+}
+
+A function definition in Go programming language consists of a
+function header and a function body. Here are all the parts of a
+function −
+
+func func starts the declaration of a function.
+
+Function Name − This is the actual name of the function. The
+function name and the parameter list together constitute the
+function signature.
+
+Parameters − A parameter is like a placeholder. When a function
+is invoked, you pass a value to the parameter. This value is
+referred to as actual parameter or argument. The parameter list
+refers to the type, order, and number of the parameters of a
+function. Parameters are optional; that is, a function may
+contain no parameters.
+
+Return Type − A function may return a list of values. The
+return_types is the list of data types of the values the
+function returns. Some functions perform the desired operations
+without returning a value. In this case, the return_type is the
+not required.
+
+Function Body − The function body contains a collection of
+statements that define what the function does.
+
+// -------------------------------------------------------------
+Can you return multiple values from a function?
+A Go function can return multiple values. For example −
+
+package main
+import "fmt"
+func swap(x, y string) (string, string) {
+return y, x
+}
+func main() {
+a, b := swap("Mahesh", "Kumar")
+fmt.Println(a, b)
+}
+
+// -------------------------------------------------------------
+In how many ways you can pass parameters to a method?
+While calling a function, there are two ways that arguments can
+be passed to a function −
+
+Call by value − This method copies the actual value of an
+argument into the formal parameter of the function. In this
+case, changes made to the parameter inside the function have no
+effect on the argument.
+
+Call by reference − This method copies the address of an
+argument into the formal parameter. Inside the function, the
+address is used to access the actual argument used in the call.
+This means that changes made to the parameter affect the
+argument.
+
+// -------------------------------------------------------------
+What is the default way of passing parameters to a function?
+By default, Go uses call by value to pass arguments. In general,
+this means that code within a function cannot alter the
+arguments used to call the function and above mentioned example
+while calling max() function used the same method.
+
+// -------------------------------------------------------------
+What do you mean by function as value in Go?
+Go programming language provides flexibility to create functions
+on the fly and use them as values. We can set a variable with a
+function definition and use it as parameter to a function.
+
+// -------------------------------------------------------------
+What are the function closures?
+Functions closure are anonymous functions and can be used in
+dynamic programming.
+
+// -------------------------------------------------------------
+What are methods in Go?
+Go programming language supports special types of functions
+called methods. In method declaration syntax, a "receiver" is
+present to represent the container of the function. This
+receiver can be used to call function using "." operator.
+
+// -------------------------------------------------------------
+What is default value of a local variable in Go?
+A local variable has default value as it corresponding 0 value.
+
+// -------------------------------------------------------------
+What is default value of a global variable in Go?
+A global variable has default value as it corresponding 0 value.
+
+// -------------------------------------------------------------
+What is default value of a pointer variable in Go?
+Pointer is initialized to nil.
+
+// -------------------------------------------------------------
+Explain the purpose of the function Printf().
+Prints the formatted output.
+
+// -------------------------------------------------------------
+What is lvalue and rvalue?
+The expression appearing on right side of the assignment
+operator is called as rvalue. Rvalue is assigned to lvalue,
+which appears on left side of the assignment operator. The
+lvalue should designate to a variable not a constant.
+
+// -------------------------------------------------------------
+What is the difference between actual and formal parameters?
+The parameters sent to the function at calling end are called as
+actual parameters while at the receiving of the function
+definition called as formal parameters.
+
+// -------------------------------------------------------------
+What is the difference between variable declaration and variable
+definition?
+Declaration associates type to the variable whereas definition
+gives the value to the variable.
+
+// -------------------------------------------------------------
+Explain modular programming.
+Dividing the program in to sub programs (modules/function) to
+achieve the given task is modular approach. More generic
+functions definition gives the ability to re-use the functions,
+such as built-in library functions.
+
+// -------------------------------------------------------------
+What is a token?
+A Go program consists of various tokens and a token is either a
+keyword, an identifier, a constant, a string literal, or a
+symbol.
+
+// -------------------------------------------------------------
+Which key word is used to perform unconditional branching?
+goto
+
+// -------------------------------------------------------------
+What is an array?
+Array is collection of similar data items under a common name.
+
+// -------------------------------------------------------------
+What are nil Pointers in Go?
+Go compiler assign a Nil value to a pointer variable in case you
+do not have exact address to be assigned. This is done at the
+time of variable declaration. A pointer that is assigned nil is
+called a nil pointer. The nil pointer is a constant with a value
+of zero defined in several standard libraries.
+
+// -------------------------------------------------------------
+What is a pointer on pointer?
+It's a pointer variable which can hold the address of another
+pointer variable. It de-refers twice to point to the data held
+by the designated pointer variable.
+
+var a int
+var ptr *int
+var pptr **int
+a = 3000
+ptr = &a
+pptr = &ptr
+fmt.Printf("Value available at *pptr = %d\n", *pptr)
+
+Therefore 'a' can be accessed by **pptr.
+
+// -------------------------------------------------------------
+What is structure in Go?
+Structure is another user defined data type available in Go
+programming, which allows you to combine data items of different
+kinds.
+
+// -------------------------------------------------------------
+How to define a structure in Go?
+To define a structure, you must use type and struct statements.
+The struct statement defines a new data type, with more than one
+member for your program. type statement binds a name with the
+type which is struct in our case.
+
+The format of the struct statement is this −
+
+type struct_variable_type struct {
+member definition;
+member definition;
+...
+member definition;
+}
+
+// -------------------------------------------------------------
+What is slice in Go?
+Go Slice is an abstraction over Go Array. As Go Array allows you
+to define type of variables that can hold several data items of
+the same kind but it do not provide any inbuilt method to
+increase size of it dynamically or get a sub-array of its own.
+Slices covers this limitation. It provides many utility
+functions required on Array and is widely used in Go
+programming.
+
+// -------------------------------------------------------------
+How to define a slice in Go?
+To define a slice, you can declare it as an array without
+specifying size or use make function to create the one.
+
+var numbers []int / a slice of unspecified size /
+/ numbers == []int{0,0,0,0,0}/
+numbers = make([]int,5,5) / a slice of length 5 and capacity 5/
+
+// -------------------------------------------------------------
+How to get the count of elements present in a slice?
+len() function returns the elements presents in the slice.
+
+// -------------------------------------------------------------
+What is the difference between len() and cap() functions of
+slice in Go?
+len() function returns the elements presents in the slice where
+cap() function returns the capacity of slice as how many
+elements it can be accomodate.
+
+// -------------------------------------------------------------
+How to get a sub-slice of a slice?
+Slice allows lower-bound and upper bound to be specified to get
+the subslice of it using[lower-bound:upper-bound].
+
+// -------------------------------------------------------------
+What is range in Go?
+The range keyword is used in for loop to iterate over items of
+an array, slice, channel or map. With array and slices, it
+returns the index of the item as integer. With maps, it returns
+the key of the next key-value pair.
+
+// -------------------------------------------------------------
+What are maps in Go?
+Go provides another important data type map which maps unique
+keys to values. A key is an object that you use to retrieve a
+value at a later date. Given a key and a value, you can store
+the value in a Map object. After value is stored, you can
+retrieve it by using its key.
+
+// -------------------------------------------------------------
+How to create a map in Go?
+You must use make function to create a map.
+
+/ declare a variable, by default map will be nil/
+var map_variable map[key_data_type]value_data_type
+/ define the map as nil map can not be assigned any value/
+map_variable = make(map[key_data_type]value_data_type)
+
+// -------------------------------------------------------------
+How to delete an entry from a map in Go?
+delete() function is used to delete an entry from the map. It
+requires map and corresponding key which is to be deleted.
+
+// -------------------------------------------------------------
+What is type casting in Go?
+Type casting is a way to convert a variable from one data type
+to another data type. For example, if you want to store a long
+value into a simple integer then you can type cast long to int.
+You can convert values from one type to another using the cast
+operator as following:
+
+type_name(expression)
+
+// -------------------------------------------------------------
+What are interfaces in Go?
+Go programming provides another data type called interfaces
+which represents a set of method signatures. struct data type
+implements these interfaces to have method definitions for the
+method signature of the interfaces.
+// -------------------------------------------------------------
+
+
