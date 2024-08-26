@@ -1,0 +1,47 @@
+https://github.com/NanXiao/golang-101-hacks/blob/master/SUMMARY.md
+by Nan Xiao
+
+
+0301 DONE How to build Go development environment
+0301 DONE Create Go workspace
+0304 DONE Package
+0304 DONE “go build” and “go install”
+0304 DONE "go get" command
+Use govendor to implement vendoring
+init function
+Short variable declaration
+“nil slice” vs “nil map”
+Prepend
+String
+The internals of slice
+Pass slice as a function argument
+Two-dimensional slice
+Reallocating underlying array of slice
+copy
+Array
+Conversion between array and slice
+Accessing map
+switch
+Interface
+Type assertion and type switch
+Types
+io.Reader interface
+Decorate types to implement io.Reader interface
+Buffered read
+io.Writer interface
+Check data race
+Sort
+range
+Debugging
+Goroutine
+Functional literals
+defer
+error vs errors
+Send and receive operations on channel
+Channel types
+Unbuffered and buffered channels
+nil channel VS closed channel
+Select operation
+Need not close every channel
+Processing JSON object
+Use sync.WaitGroup to synchronize goroutines

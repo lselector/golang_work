@@ -1,0 +1,381 @@
+Go Interview Questions
+
+A list of top frequently asked Go Programming interview
+questions and answers are given below.
+
+// -------------------------------------------------------------
+1) What is Go programming language?
+
+GO is an open source programming language developed at Google.
+It is also known as Golang. This language is designed primarily
+for system programming.
+
+// -------------------------------------------------------------
+2) Why should one use Go programming language?
+
+Because Go is an open source programming language so, it is very
+easy to build simple, reliable and efficient software.
+
+// -------------------------------------------------------------
+3) Who is known as the father of Go programming language?
+
+Go programming language is designed by Robert Griesemer, Rob
+Pike, and Ken Thompson. It is developed at Google Inc. in 2009.
+
+// -------------------------------------------------------------
+4) What are packages in Go program?
+
+Go programs are made up of packages. The program starts running
+in package main. This program is using the packages with import
+paths "fmt" and "math/rand".
+
+// -------------------------------------------------------------
+5) Does Go support generic programming?
+
+Go programming language doesn't provide support for generic
+programming.
+
+// -------------------------------------------------------------
+6) Is Go a case sensitive language?
+
+Yes! Go is a case sensitive programming language.
+
+// -------------------------------------------------------------
+7) What is a string literal in Go programming?
+
+A string literals specifies a string constant that is obtained
+from concatenating a sequence of characters.
+
+There are two types of string literals:
+
+Raw string literals: The value of raw string literals are
+character sequence between back quotes ". Its value is specified
+as a string literal that composed of the uninterrupted character
+between quotes.
+Interpreted string literals: It is shown between double quotes "
+". The value of the literal is specified as text between the
+double quotes which may not contain newlines.
+
+// -------------------------------------------------------------
+8) What is workspace in Go?
+
+A workspace contains Go code. A workspace is a directory
+hierarchy with three directories at its root.
+
+"src" directory contains GO source files organized into
+packages.
+"pkg" directory contains package objects.
+"bin" directory contains executable commands
+
+// -------------------------------------------------------------
+9) What is the default value of type bool in Go programming?
+
+"false" is the default value of type "bool".
+
+// -------------------------------------------------------------
+10) What is GOPATH environment variable in go programming?
+
+The GOPATH environment variable specifies the location of the
+workspace. You must have to set this environment variable while
+developing Go code.
+
+// -------------------------------------------------------------
+11) What are the advantages/ benefits of Go programming
+language?
+
+Advantages/ Benefits of Go programming language:
+
+Go is fast and compiles very quickly.
+It supports concurrency at the language level.
+It has Garbage collection.
+It supports various safety features and CSP-style concurrent
+programming features.
+Strings and Maps are built into the language.
+Functions are first class objects in this language.
+
+// -------------------------------------------------------------
+12) What are the several built-in supports in Go?
+
+A list of built-in supports in Go:
+
+Container: container/list,container/heap
+Web Server: net/http
+Cryptography: Crypto/md5 ,crypto/sha1
+Compression: compress/ gzip
+Database: database/sql
+
+// -------------------------------------------------------------
+13) What is goroutine in Go programming language?
+
+A goroutine is a function which usually runs concurrently with
+other functions. If you want to stop goroutine, you pass a
+signal channel to the goroutine, that signal channel pushes a
+value into when you want the goroutine to stop.
+
+The goroutine polls that channel regularly as soon as it detects
+a signal, it quits.
+
+Quit : = make (chan bool)  
+go func ( ) {  
+    for  {  
+        select {  
+            case <- quit:  
+            return  
+            default  
+            // do other stuff  
+        }  
+    }  
+}()  
+// Do stuff  
+// Quit goroutine  
+Quit <- true  
+
+// -------------------------------------------------------------
+14) How to write multiple strings in Go programming?
+
+To write multiple strings in Go, you should use a raw string
+literal, where the string is delimited by back quotes.
+
+For example:
+
+'line  1  
+line  2  
+line  3 '  
+
+// -------------------------------------------------------------
+15) What is the usage of break statement in Go programming
+language?
+
+The break statement is used to terminate the for loop or switch
+statement and transfer execution to the statement immediately
+following the for loop or switch.
+
+// -------------------------------------------------------------
+16) What is the usage of continue statement in Go programming
+language?
+
+The continue statement facilitates the loop to skip the
+remainder of its body and immediately retest its condition prior
+to reiterating.
+
+// -------------------------------------------------------------
+17) What is the usage of goto statement in Go programming
+language?
+
+The goto statement is used to transfer control to the labeled
+statement.
+
+// -------------------------------------------------------------
+18) Explain the syntax for 'for' loop.
+
+The syntax of a for loop in Go programming language is:
+
+for [condition |  ( init; condition; increment ) | Range]  
+{  
+   statement(s);  
+}  
+
+// -------------------------------------------------------------
+19) Write the syntax to create a function in Go programming
+language?
+
+Syntax to create a function in Go:
+
+func function_name( [parameter list] ) [return_types]  
+{  
+   body of the function  
+}   
+
+// -------------------------------------------------------------
+20) Explain static type declaration of variable in Go
+programming language?
+
+Static type variable declaration is used to provide assurance to
+the compiler that there is one variable in the given type and
+name so that there is no need for compiler to know complete
+detail about the variable for further processing. A variable
+declaration has its meaning at the time of compilation only,
+compiler needs actual variable declaration at the time of
+linking of the program.
+
+// -------------------------------------------------------------
+21) Explain dynamic type declaration of a variable in Go
+programming language?
+
+A dynamic type variable declaration needs a compiler to
+interpret the type of variable according to the value passed to
+it. Compilers don't need a variable to have type statically as a
+necessary requirement.
+
+// -------------------------------------------------------------
+22) How would you print type of variable in Go?
+
+You have to use the following code to print the type of a
+variable:
+
+var a, b, c = 3, 4, "foo"    
+fmt.Printf("a is of type %T\n", a)  
+
+// -------------------------------------------------------------
+23) What is a pointer in Go?
+
+A pointer is used to hold the address of a variable.
+
+For example:
+
+   
+var x = 5  
+var p *int  
+p = &x  
+fmt.Printf("x = %d", *p)  
+Here x can be accessed by *p.
+
+// -------------------------------------------------------------
+24) How a pointer is represented in Go?
+
+In Go, a pointer is represented by using the *(asterisk)
+character followed by the type of the stored value.
+
+// -------------------------------------------------------------
+25) Is it true that short variable declaration := can be used
+only inside a function?
+
+Yes. A short variable declaration := can be used only inside a
+function.
+
+// -------------------------------------------------------------
+26) How can you format a string without printing?
+
+You should the following command to format a string without
+printing:
+
+return fmt.Sprintf ("at %v, %s" , e.When , e.What )
+
+// -------------------------------------------------------------
+27) What is Syntax like in Go programming language?
+
+The GO programming language syntax is specified using Extended
+Backus-Naur Form (EBNF):
+
+Production = production_name "=" [ Expression ]
+Expression = Alternative { "l" Alternative }
+Alternative = Term { Term }
+Term = Production_name l token [ "?"token] l Group l Option l
+Repetition
+Group = " ( "" Expression")"
+Option = " [ " Expression "" ]"
+Repetition = " {" Expression "}"
+
+// -------------------------------------------------------------
+28) Does Go programming language support type inheritance?
+
+Go programming language doesn't provide support for type
+inheritance.
+
+// -------------------------------------------------------------
+29) Does Go programming language support operator overloading?
+
+Go programming language doesn't provide support for operator
+overloading.
+
+// -------------------------------------------------------------
+30) Does Go support method overloading?
+
+Go programming language doesn't provide support for method
+overloading.
+
+// -------------------------------------------------------------
+31) Does Go support pointer arithmetics?
+
+Go programming language doesn't provide support for pointer
+arithmetic.
+
+// -------------------------------------------------------------
+32) What will be the output of the following code?
+
+package main  
+import "fmt"  
+ const (   
+       i = 7  
+       j   
+       k   
+ )  
+func main() {  
+ fmt.Println(i, j, k)  
+}  
+Ans:
+
+777
+
+// -------------------------------------------------------------
+33) What is Go Interfaces?
+
+In GO, interfaces is a way to identify the behavior of an
+object. An interface is created by using the "type" word,
+followed by a name and the keyword interface. An interface is
+specified as two things.
+
+A set of methods.
+Also it is referred as type.
+
+// -------------------------------------------------------------
+34) What is Type assertion in Go? What does it do?
+
+A type assertion takes an interface value and retrieves from it
+a value of the specified explicit type.
+
+Type conversion is used to convert dissimilar types in GO.
+
+// -------------------------------------------------------------
+35) What are the different methods in Go programming language?
+
+In Go programming language there are several different types of
+functions called methods. In method declaration syntax, a
+"receiver" is used to to represent the container of the
+function. This receiver can be used to call function using "."
+operator.
+
+// -------------------------------------------------------------
+36) What is the default value of a local variable in Go?
+
+The default value of a local variable is as its corresponding 0
+value.
+
+// -------------------------------------------------------------
+37) What is default value of a global variable in Go?
+
+The default value of a local variable is as its corresponding 0
+value.
+
+// -------------------------------------------------------------
+38) What is the default value of a pointer variable in Go?
+
+In Go programming language, the pointer is initialized to nil.
+
+// -------------------------------------------------------------
+39) How can you check a variable type at runtime in Go
+programming language?
+
+In Go programming language, there is a special type of switch
+dedicated to check variable type at runtime. This switch is
+referred as type switch.
+
+// -------------------------------------------------------------
+40) Is it recommended to use Global Variables in a program that
+implements go routines?
+
+Global variables are not recommended because they may get
+accessed by multiple go routines (threads) concurrently and this
+can easily lead to an unexpected behavior causing arbitrary
+results.
+
+// -------------------------------------------------------------
+41) What do you know about modular programming?
+
+Modular programming is a way to divide the program in to sub
+programs (modules / function) to achieve maximum efficiency.
+
+More generic functions definition facilitates you to re-use the
+functions, such as built-in library functions.
+
+// -------------------------------------------------------------

@@ -1,0 +1,429 @@
+Write a program that prints the numbers from 1 to 100. But for
+multiples of three print “Fizz” instead of the number and for
+the multiples of five print “Buzz”. For numbers which are
+multiples of both three and five print “Fizz-Buzz”.
+
+// -------------------------------------------------------------
+// FizzBuzz using If / Else
+
+package main
+
+import "fmt"
+
+func main() {
+ for i := 1; i <= 100; i++ {
+
+  if i%15 == 0 {
+        fmt.Println("Fizz-Buzz", i)
+  } else if i%5 == 0 {
+        fmt.Println("Buzz", i)
+  } else if i%3 == 0 {
+        fmt.Println("fizz", i)
+  } else {
+        fmt.Println(i)
+  }
+ }
+}
+
+// -------------------------------------------------------------
+// FizzBuzz using Switch
+
+package main
+ 
+import "fmt"
+ 
+func main() {
+    for i := 1; i <= 100; i++ {
+        switch {
+        case i%15==0:
+            fmt.Println("FizzBuzz")
+        case i%3==0:
+            fmt.Println("Fizz")
+        case i%5==0:
+            fmt.Println("Buzz")
+        default: 
+            fmt.Println(i)
+        }
+    }
+}
+
+// -------------------------------------------------------------
+question 2. How many Looping constructs are present in Go
+programming language?
+
+A# 2. Only one loop - for.
+
+// -------------------------------------------------------------
+question 3. What is the default value of type bool in Go?
+
+A# 3. false.
+
+// -------------------------------------------------------------
+Q# 4. In case of Constants which type of expressions are
+evaluated at compile time and which are evaluated at run time?
+
+A# 4. As a rule Constants are evaluated (determined) at compile
+time and never at run time. 
+
+// -------------------------------------------------------------
+Q# 5. Which one of the following is correct?
+
+         a. const Pi = 3.14
+         b. const Pi = math.Pi 
+         c. both a and b are correct
+         d. None of the above
+
+A# 5. c
+
+// -------------------------------------------------------------
+Q# 6. Short  variable declaration := can be used only inside a
+function. True or False?
+
+A# 6. True.
+
+// -------------------------------------------------------------
+Q# 7. Short declaration := can be used for defining global
+variables. True or False?
+
+A# 7. False.
+
+// -------------------------------------------------------------
+Q# 8. What's wrong with the following code?
+
+package main
+
+import "fmt"
+
+func main() {
+     var a int8 = 3
+     var b int16 = 4
+     sum := a + b
+ fmt.Println(sum)
+}
+
+
+A# 8. Compile time error, you'll get the following message:
+invalid operation: a + b (mismatched types int8 and int16)
+
+Note - Though int8 and int16 are similar in nature they are two
+distinct types. One of the
+ variables must be converted explicitly so that both the
+variables are of same type.
+
+// -------------------------------------------------------------
+Q# 9. How can you rectify the above code?
+
+A# 9. Replace line 11 with the following line.
+
+          sum := a + int8(b)
+
+// -------------------------------------------------------------
+Q# 10. What's the output of following code?
+
+package main
+
+import "fmt"
+ const ( 
+       i = iota
+       j 
+       k 
+ )
+func main() {
+ fmt.Println(i, j, k)
+}
+
+A# 10.
+ 0 1 2
+
+
+// -------------------------------------------------------------
+Q# 11. What's the output of following code?
+
+package main
+
+import "fmt"
+ const ( 
+       i = 7
+       j 
+       k 
+ )
+func main() {
+ fmt.Println(i, j, k)
+}
+
+
+A# 11
+7 7 7
+
+// -------------------------------------------------------------
+Q# 12. Do these code snipets have same output?
+
+package main
+import "fmt"
+const(
+    p = iota  
+    q = iota  
+    r = iota        
+)
+func main() {
+    fmt.Println(p, q, r)
+}
+
+// -------------------
+package main
+import "fmt"
+const ( 
+   p, q, r = iota, iota, iota 
+)
+func main() {
+    fmt.Println(p, q, r)
+}
+
+
+A# 12. False. Note: They have different outputs.
+
+          Output 1: 0 1 2
+          Output 2: 0 0 0
+
+// -------------------------------------------------------------
+Q# 13. What's the output of following code?
+
+package main
+import "fmt"
+func main(){
+     c := [...]int{} 
+     fmt.Println(len(c))
+}
+ 
+A# 13 
+    0
+
+Note: Similarly, c := [...]int{4, 7, 2} 
+would have given an output of 3. 
+Remember, in an array declaration you've the option 
+to replace length of the array with ... and Go run time
+is intelligent enough to compute the length at run time.
+
+// -------------------------------------------------------------
+Q# 14. Arrays are value types i.e. in case of arrays as 
+arguments, functions get their copies instead of a reference. 
+True or False?
+
+A# 14. True
+
+// -------------------------------------------------------------
+Q# 15. Slices are reference type - the variable are stored 
+in the heap? True or False?
+A# 15. True
+// -------------------------------------------------------------
+Q# 16. What's the output of following code?
+package main
+import "fmt"
+func main() {
+ oddSlc := []int{1,3,5,7}     
+ evenSlc := []int{2,4,6,8}
+ copy(evenSlc, oddSlc[2:])    
+ fmt.Println("evenSlc = ", evenSlc)
+}
+
+A# 16. 
+evenSlc =  [5 7 6 8]
+// -------------------------------------------------------------
+Q# 17. Maps are value types. True or False?
+
+A# 17. False (Note: Maps are Reference types.)
+// -------------------------------------------------------------
+Q# 18. Is it recommended to use Global Variables in a program
+that implements Go 
+
+routines?
+
+A# 18. Global variables are not recommended as they may get
+accessed by multiple go routines (threads) concurrently that can
+easily lead to an unexpected behavior causing arbitrary results. 
+
+ 
+// -------------------------------------------------------------
+Q# 19. Which of the following is NOT a valid Go identifier?
+
+           a. _score2016
+           b. 2016_Score
+           c. गगन
+          d. गगनSky
+P.S. Identifiers name program entities such as variables,
+functions, constants, 
+structs, slices, maps etc.
+
+A# 19.  b
+
+Imp. NOTE: In Go the names of variable, function, constant,
+struct etc must begin with an Unicode letter or an underscore.
+
+
+
+
+// -------------------------------------------------------------
+Q# 20. Is variable name iCount same as icount in Go programming?
+
+A# 20. No. Go is case sensitive.
+
+ 
+
+// -------------------------------------------------------------
+Q# 21. In idiomatic Go code package names are all in lower case.
+Do you agree?
+
+A#  21. Yes. A few OS may not be able to handle mixed case names
+of packages.
+
+// -------------------------------------------------------------
+Q# 22. renderHtml - is it an idiomatic Go variable name?
+
+ 
+A# 22. No. renderHTML is a better choice. Andrew Gerrand
+suggests: Acronyms should be all capitals, as in ServeHTTP and
+IDProcessor.
+
+
+// -------------------------------------------------------------
+Q# 23. In Go there's no concept of uninitialized variable. True
+or False?
+
+A# 23. True
+
+// -------------------------------------------------------------
+Q# 24. Which of the following is initial value (zero value) for
+interfaces, slice, pointers, 
+
+maps, channels and functions?
+
+ 
+                a. 0
+
+                b. ""
+
+                c. nil
+
+                d. false
+
+ 
+A# 24. c
+
+ 
+// -------------------------------------------------------------
+Q# 25. A good name (say a variable name) in Go is short,
+consistent &amp; easy to understand. Keeping this context in
+mind, do you agree with the following rule of thumb is Go:
+
+The greater the distance between a name declaration &amp; its
+uses, the longer the name
+
+should be.
+
+ 
+A# 25. Agree.
+ 
+
+
+
+// -------------------------------------------------------------
+Q# 26. Is it True - Go compiler is bootstrapped - i.e. Go
+programming has been used to build Go compiler?
+
+ 
+A# 26. Yes. Go 1.4 was used to build Go 1.5. As of Go 1.4 the Go
+compiler was writtem in C language.
+
+
+
+// -------------------------------------------------------------
+Q# 27. What is the output of the following code snippet?
+
+
+package main
+
+import "fmt"
+
+func main() {
+ var i, j int
+ fmt.Println(&i == &i, &i == &j, &j == nil)
+}
+
+
+A# 27. 
+
+ 
+     true    false    false
+
+ 
+ 
+// -------------------------------------------------------------
+Q# 28. What is the output of the following code snippet?
+
+
+
+package main
+
+import "fmt"
+
+func main() {
+ x := 1
+ y := &x
+
+ fmt.Println(*y)
+
+ *y = 2
+ fmt.Println(x)
+
+}
+
+
+A# 28. 
+
+       1
+       2
+
+// -------------------------------------------------------------
+Q# 29. What is the output of the following code snippet?
+
+ 
+package main
+
+import "fmt"
+
+func main() {
+
+ x := 1
+ incr(&x)
+ fmt.Println(incr(&x))
+
+}
+func incr(p *int) int {
+ *p++
+ return *p
+}
+A# 29. 
+
+ 
+          3
+
+
+// -------------------------------------------------------------
+Q# 30. Arrays are homogeneous (their elements have same type)
+whereas Structs are heterogeneous. Is this Statement True?
+
+
+ A# 30. Yes.
+
+ 
+ 
+
+// -------------------------------------------------------------
+Q# 31. Arrays & Structs are fixed size. In contrast Slices &
+Maps are dynamic data structures that grow as values are added.
+Is this Statement True? 
+
+ 
+ A# 31. Yes.
+
+// -------------------------------------------------------------

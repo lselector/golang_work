@@ -1,0 +1,31 @@
+
+Go frameworks, libraries and software 
+https://awesome-go.com/
+https://github.com/avelino/awesome-go
+
+for example:
+
+GJSON—quick parsing of JSON values
+ffjson—fast JSON serialization
+gota—data frames
+csvutil—registering a CSV file as a table and running SQL statements on the CSV file
+scrape—web scraping
+go-freeling—NLP
+
+math—stdlib math functionality
+gonum/matrix—matrices and matrix operations
+gonum/floats—various helper functions for dealing with slices of floats
+gonum/stats—statistics including covariance, PCA, ROC, etc.
+gonum/graph or gograph—graph data structure and algorithms
+gonum/optimize—function optimizations, minimization
+
+gophernotes—Go kernel for Jupyter notebooks
+dashing-go—dashboarding
+gonum/plot—plotting
+
+sajari/regression—multivariable regression
+goml, golearn, and hector—general purpose machine learning
+bayesian—bayesian classification, TF-IDF
+sajari/word2vec—word2vec
+go-neural, gonn, and neurgo—neural networks
+
